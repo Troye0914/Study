@@ -2,10 +2,11 @@
 豆瓣读书
 https://book.douban.com/latest?icn=index-latestbook-all
 """
-import json
-import os.path
+
+import os
 import re
 import time
+import json
 import Proxies
 import requests
 from lxml import etree
@@ -39,8 +40,8 @@ class DouBan(object):
             self.params['p'] = str(self.page)
             response = requests.get(self.url, headers=self.headers, params=self.params, proxies=self.proxies)
             html_doc = response.text
-            self.parse_data_xpath(html_doc)
-            # self.parse_data_bs(html_doc)
+            # self.parse_data_xpath(html_doc)
+            self.parse_data_re(html_doc)
             time.sleep(2)
         print('爬取完成！')
 
@@ -49,7 +50,7 @@ class DouBan(object):
         xml_doc = etree.HTML(html_doc)
         links = xml_doc.xpath('//a[@class="fleft"]/@href')
         titles = xml_doc.xpath('//div[@class="media__body"]/h2/a')
-        details = xml_doc.xpath('p[@class="subject-abstract color-gray"]')
+        details = xml_doc.xpath('//p[@class="subject-abstract color-gray"]')
         grades = xml_doc.xpath('//div[@class="media__body"]//span[@class="font-small color-red fleft"]')
         prices = xml_doc.xpath('//div[@class="media__body"]//span[@class="buy-info"]/a')
         self.num = 0
@@ -61,14 +62,14 @@ class DouBan(object):
             grade = '无' if grade.text is None else grade.text
             price = price.text.strip()[4:]
             response = requests.get(link, headers=self.headers)
-            html_doc = response.text
-            xml_doc = etree.HTML(html_doc)
-            content_p = xml_doc.xpath('//div[@id="link-report"]/span[@class="short"]/div[@class="intro"]/p')
+            child_html_doc = response.text
+            child_xml_doc = etree.HTML(child_html_doc)
+            content_p = child_xml_doc.xpath('//div[@id="link-report"]/span[@class="short"]/div[@class="intro"]/p')
             content = ''
             for p in content_p:
                 if p.text is not None:
                     content += (p.text + '\n')
-            author_p = xml_doc.xpath('//div[@class="indent "]//div[@class="intro"]/p')
+            author_p = child_xml_doc.xpath('//div[@class="indent "]//div[@class="intro"]/p')
             author = ''
             for p in author_p:
                 if p.text is not None:
@@ -89,7 +90,20 @@ class DouBan(object):
 
     """正则表达式"""
     def parse_data_re(self, html_doc):
-        re.findall('')
+        links_and_titles = re.findall('<a\sclass=\"fleft\"\shref=\"(.*?)\">(.*?)</a>', html_doc, re.S)
+        details = re.findall('<p\sclass=\"subject-abstract\scolor-gray\">(.*?)</p>', html_doc, re.S)
+        grades = re.findall('<span\sclass=\"font-small\scolor-red\sfleft\">(.*?)</span>', html_doc, re.S)
+        prices = re.findall('<span\sclass=\"buy-info\">.*?<a\shref.*?>(.*?)</a>.*?</span>', html_doc, re.S)
+        for link_and_title, detail, grade, price in zip(links_and_titles, details, grades, prices):
+            link = link_and_title[0]
+            title = link_and_title[1]
+            detail = detail.strip()
+            grade = '无' if grade == '' else grade
+            price = price.strip()[4:]
+            self.num = 0
+            response = requests.get(link, self.headers)
+            child_html_doc = response.text
+            re.findall('<div\sclass=\"indent\"\sid="link-report">.*?<span\sclass=\"short\">.*?<div\sclass=\"intro\">.*?<p>', child_html_doc, re.S)
 
     """json存储"""
     def save_data_json(self, dict_all_data, title, detail, grade, price, content, author):
