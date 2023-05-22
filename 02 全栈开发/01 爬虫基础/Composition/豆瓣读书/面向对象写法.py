@@ -6,11 +6,10 @@ import json
 import os.path
 import re
 import time
-from bs4 import BeautifulSoup
-import requests
 import Proxies
-from fake_useragent import UserAgent
+import requests
 from lxml import etree
+from fake_useragent import UserAgent
 
 
 class DouBan(object):
