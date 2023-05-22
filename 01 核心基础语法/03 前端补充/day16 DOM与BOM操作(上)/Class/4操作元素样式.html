@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div id="hot">多喝岩浆</div>
+
+    <script>
+        let hot = document.getElementById('hot')
+        hot.style.color = 'pink'
+        hot.style.fontSize = '66px'
+
+        let box = document.getElementsByClassName('box')[0]
+        box.style.backgroundColor = '#096'
+        box.style.border = '3px solid #ccc'
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoveBox</title>
+
+  <style>
+    #play{
+      position: absolute;
+      width: 62px;
+      height: 62px;
+      background: url("img/player.png");
+    }
+  </style>
+</head>
+
+<body>
+  
+    <div id = "play"></div>
+   
+  <script>
+    (function(){
+      let player = document.getElementById("play");
+      let move = 50;
+
+      /*移动操作,为整个文本文档监听键盘事件(event事件)*/
+      document.addEventListener("keydown",function(ev){
+        let keyCode = ev.keyCode;
+
+          /*设置偏移*/
+        let left = player.offsetLeft
+            ,top = player.offsetTop;
+
+        switch(keyCode){
+          case 87:
+            top -= move;
+          break;
+          case 65:
+            left -= move;
+          break;
+          case 83:
+            top += move;
+          break;
+          case 68:
+            left += move;
+          break;
+         } 
+         player.style.left = left + 'px';
+         player.style.top = top + 'px';
+      });     
+    })();
+  </script>
+</body>
+</html>

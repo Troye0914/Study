@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">静夜思</h1>
+    <h2>李白</h2>
+    <ul>
+        <li>床前明月光</li>
+        <li class="item">疑是地上霜</li>
+        <li class="item">举头望明月</li>
+        <li class="item">举头望明月</li>
+        <li class="item">举头望明月</li>
+        <li class="item">举头望明月</li>
+        <li class="item">举头望明月</li>
+        <li>低头思故乡</li>
+        <li>低头思故乡</li>
+        <li>低头思故乡</li>
+    </ul>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        $('.item:first').css('color', '#096')
+        $('.item:last').css('color', 'pink')
+        $('li:odd').css('color', 'red')
+        $('li:even').css('color', '#096')
+        $('li:eq(5)').css('color', '#6cf')
+        $('li:lt(3)').css('color', 'gold')
+        $('li:gt(3)').css('color', 'brown')
+        $('li:not(.item)').css('color', 'purple')
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>求最大值</title>
+</head>
+
+<body>
+    <script>
+        let arr = [77, 15, 99, 70, 16, 22, 99, 108, 520]
+        let max_data = -Infinity
+        let pos = new Array()
+        for (let i in arr) {
+            if (arr[i] == max_data) {
+                pos.push(i)
+            } else {
+                max_data = Math.max(max_data, arr[i])
+                if (arr[i] == max_data) {
+                    pos.splice(0, pos.length)
+                    pos.push(i)
+                }
+            }
+        }
+        document.write(`最大值：${max_data}<br>所在下标：${pos.toString()}`)
+    </script>
+</body>
+
+</html>

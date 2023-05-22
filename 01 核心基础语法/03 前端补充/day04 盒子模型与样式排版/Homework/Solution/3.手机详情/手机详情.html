@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机详情</title>
+    <style>
+        body{
+            background-color: rgb(245, 245, 245);
+        }
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .box{
+            width: 1240px;
+            margin-left: -14px;
+        }
+        .box1{
+            width: 978px;
+            float: left;
+            margin-left: 14px;
+        }
+        .box1 ul{
+            list-style: none;
+            width: 992px;
+            padding: 0;
+            margin: 0 0 -14px -14px;
+        }
+        .box1 ul li{
+            float: left;
+            width: 234px;
+            margin: 0 0 14px 14px;
+            background-color: white;
+        }
+        .box1 ul li:hover{
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+            transform: scale(1.01);
+            transition: 0.5s;
+        }
+        .box1 ul li a{
+            display: block;
+            width: 234px;
+            height: 260px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .box2{
+            float: left;
+            width: 234px;
+            margin-left: 14px;
+        }
+        .box2 ul{
+            list-style: none;
+            height: 614px;
+            padding: 0;
+            margin: 0 0 -14px -14px;
+        }
+        .box2 ul li{
+            margin: 0 0 14px 14px;
+        }
+        .box2 ul li:hover{
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+            transform: scale(1.01);
+            transition: 0.5s;
+        }
+        .box2 ul li a{
+            display: block;
+            width: 234px;
+            height: 614px;
+        }
+        .figure-img{
+            width: 160px;
+            height: 160px;
+            margin: 0 37px 18px;
+        }
+        .title{
+            line-height: 21px;
+            color: black;
+            margin: 0 10px 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        .desc{
+            line-height: 18px;
+            color: rgb(164, 164, 164);
+            margin: 0 10px 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+        .price{
+            line-height: 21px;
+            color: black;
+            margin: 0 10px 14px;
+            font-size: 14px;
+        }
+        .num{
+            color: rgb(255, 132, 0);
+        }
+        .empty{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>手机</h2>
+        <div class="lbox">
+            <div class="box">
+                <div class="box2">
+                    <ul>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=18075" target="_blank">
+                                <img width="234px" height="614px" src="img/p9.webp" alt="Redmi K60">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box1">
+                    <ul>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=18268" target="_blank">
+                                <div class="figure-img" ><img width="160px" height="160px" src="img/p1.webp" alt="Redmi Note 12 Turbo"></div>
+                                <h3 class="title">Redmi Note 12 Turbo</h3>
+                                <p class="desc">狂暴引擎 超强性能释放</p>
+                                <p class="price"><span class="num">1999</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=18075" target="_blank">
+                                <div class="figure-img"><img width="160px" height="160px" src="img/p2.webp" alt="Redmi K60"></div>
+                                <h3 class="title">Redmi K60</h3>
+                                <p class="desc">骁龙8+｜2K 高光直屏｜5500mAh+67W闪充</p>
+                                <p class="price"><span class="num">2499</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=18077" target="_blank">
+                                <div class="figure-img"><img width="160px" height="160px" src="img/p3.webp" alt="Redmi K60 Pro"></div>
+                                <h3 class="title">Redmi K60 Pro</h3>
+                                <p class="desc">【第二代骁龙8】狂暴引擎</p>
+                                <p class="price"><span class="num">3299</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=18092" target="_blank">
+                                <div class="figure-img"><img width="160px" height="160px" src="img/p4.webp" alt="Redmi Note 12 Pro 极速版"></div>
+                                <h3 class="title">Redmi Note 12 Pro 极速版</h3>
+                                <p class="desc">高通骁龙778G，OLED柔性直屏+一亿像素</p>
+                                <p class="price"><span class="num">1699</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=17972" target="_blank">
+                                <div class="figure-img"><img width="160px" height="160px" src="img/p5.webp" alt="Xiaomi 13 限量定制色"></div>
+                                <h3 class="title">Xiaomi 13 限量定制色</h3>
+                                <p class="desc">全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头</p>
+                                <p class="price"><span class="num">4999</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=17969" target="_blank">
+                                <div class="figure-img"><img width="160px" height="160px" src="img/p6.webp" alt="Xiaomi 13 Pro"></div>
+                                <h3 class="title">Xiaomi 13 Pro</h3>
+                                <p class="desc">全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 2K 专业原色屏｜120W小米澎湃秒充 ｜徕卡75mm长焦镜头</p>
+                                <p class="price"><span class="num">4999</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=17971" target="_blank">
+                                <div class="figure-img"><img width="160px" height="160px" src="img/p7.webp" alt="Xiaomi 13"></div>
+                                <h3 class="title">Xiaomi 13</h3>
+                                <p class="desc">全新第二代骁龙8｜徕卡专业光学镜头｜徕卡原生双画质 | 6.36″超窄边屏幕｜67W小米澎湃秒充｜徕卡75mm长焦镜头</p>
+                                <p class="price"><span class="num">3999</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mi.com/shop/buy?product_id=16642" target="_blank">
+                                <div class="figure-img"><img width="160px" height="160px" src="img/p8.webp" alt="Redmi Note 12 5G"></div>
+                                <h3 class="title">Redmi Note 12 5G</h3>
+                                <p class="desc">三星 OLED 护眼屏｜骁龙 5G 芯｜5000mAh 电量</p>
+                                <p class="price"><span class="num">1199</span><span>元起</span></p>
+                            </a>
+                        </li>
+                        <div class="empty"></div>
+                    </ul>
+                </div> 
+                <div class="empty"></div>
+            </div>
+            <div class="empty"></div>
+        </div>
+    </div>
+</body>
+</html>

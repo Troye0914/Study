@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form:表单标签
+         action:表单的提交位置(数据库/要把数据提交后台)
+         method:提交格式 数据提交的方式
+         https请求格式:(get/post) 默认get
+         name:表单名称
+         target:提交完这个表单 你的新网页是在哪里打开 -->
+    <form action="">
+        <!-- 单行文本框 -->
+        姓名<input type="text" placeholder="请输入姓名">
+        <!-- 多行文本框 -->
+        <textarea name="" id="" cols="30" rows="10" placeholder="请输入兴趣"></textarea>
+        <!-- 下拉菜单 这两个单词是父子级 要在一起使用 注意缩进 -->
+        <select name="" id="">
+            <option value="">麻辣烫</option>
+            <option value="">火锅</option>
+            <option value="">辣条</option>
+        </select>
+        <!-- 普通按钮 后续学习框架学习js的时候搭配点击事件去使用 -->
+        <button>点我起飞</button>
+        <hr>
+        <!-- 密码框 -->
+        请输入你的密码<input type="password">
+        <!-- 多选框 -->
+        <span>你</span><input type="checkbox">
+        <span>我</span><input type="checkbox">
+        <span>他</span><input type="checkbox">
+        <span>她</span><input type="checkbox">
+        <!-- 单选框 -->
+        <p>出去</p><input type="radio" name="ky">
+        <p>不出去</p><input type="radio" name="ky">
+        <!-- 提交按钮 -->
+        <input type="submit" value="点我">
+        <!-- 单个文件上传 -->
+        <input type="file">
+        <!-- 多个文件上传 -->
+        <input type="file" multiple>
+        <!-- 重置 -->
+        <input type="reset">
+        <!-- 网址输入框 会提示输入网址的链接 -->
+        网址输入框<input type="url">
+        <input type="submit">
+        <!-- 数字输入框 最大最小范围值 -->
+        数字框<input type="number" max="100" min="0" step="20">
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            /* justify-content: end; */
+            /* justify-content: space-between; */
+            justify-content: space-around;
+            width: 500px;
+            height: 500px;
+            background-color: #096;
+        }
+        .box div{
+            width: 100px;
+            height: 100px;
+            background-color: #6cf;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设置主轴对齐方式：justify-content
+         flex-start 默认值 按照起点对齐 左/上
+         flex-end 按照终点对齐 右/下
+         space-between 两端对齐
+         space-around 均分对齐 -->
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

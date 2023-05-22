@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第三题</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            background: url(img/background.jpg) no-repeat;
+            background-size: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="js/demo.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <img class="pic" src="img/img.jpg" alt="">
+        <div class="box">
+            <input class='input' id='auto_input1' size='100' placeholder='请输入"开发基础"阶段的老师姓名'>
+            <input class='input' id='auto_input2' size='100' placeholder='请输入"高级编程"阶段的老师姓名'>
+            <input class='input' id='auto_input3' size='100' placeholder='请输入"前端补充"阶段的老师姓名'>
+        </div>
+    </div>
+    <script>
+        const ID = new Map()
+        ID.set(1, 'auto_input1')
+        ID.set(2, 'auto_input2')
+        ID.set(3, 'auto_input3')
+
+        const teachers = new Map()
+        teachers.set('开发基础', '小川老师')
+        teachers.set('高级编程', '韦寻老师 阿宸老师')
+        teachers.set('前端补充', '婷婷老师')
+
+        console.log(`开发基础：${teachers.get('开发基础')}`)
+        console.log(`高级编程：${teachers.get('高级编程')}`)
+        console.log(`前端补充：${teachers.get('前端补充')}`)
+
+        setTimeout("name(ID.get(1), teachers.get('开发基础'))", 200);
+        setTimeout("name(ID.get(2), teachers.get('高级编程'))", 1500);
+        setTimeout("name(ID.get(3), teachers.get('前端补充'))", 4500);
+    </script>
+</body>
+</html>

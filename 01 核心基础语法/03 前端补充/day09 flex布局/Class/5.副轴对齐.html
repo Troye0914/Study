@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+            align-items: flex-end;
+            width: 500px;
+            height: 500px;
+            background-color: #096;
+        }
+        .box div{
+            width: 100px;
+            height: 100px;
+            background-color: #6cf;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设置副轴对齐方向：align-items
+         center 居中 
+         flex-end 靠终点
+         flex-start 靠起点 -->
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

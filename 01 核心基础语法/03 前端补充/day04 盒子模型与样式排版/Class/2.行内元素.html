@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        span{
+            /* width: 20px; */
+            /* height: 20px; */
+            background-color: #096;
+            font-size: 20px;
+            /* 宽度和高度默认由字体大小撑开 */
+            /* 
+            1.行内的默认宽高是自身的属性
+            2.行内元素设置宽高没有意义 不具备结构的能力
+            3.行内元素不会独占一行 默认都是放在一起的 若代码换行 默认解析成空格
+            4.行内元素不能放块元素，只能放其他行内元素
+            5.a标签特殊 它和用户体验有关 所以a标签可以包裹块元素 主要为了移动端的方便
+            6.a标签包裹a标签，浏览器会进行截断
+            */
+        }
+    </style>
+</head>
+<body>
+    <!-- <span>我是span1</span> -->
+    <!-- <span>我是span2</span> -->
+    <!-- <a href="1.块元素.html">
+        <div>点我</div>
+        <img src="img/林克.jpg" alt="">
+    </a> -->
+    <a href="img/林克.jpg">点我
+        <a href="img/林克.jpg">点我</a>
+    </a>
+</body>
+</html>

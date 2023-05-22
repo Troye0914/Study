@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        #album{
+            padding: 20px;
+            width: 600px;
+            height: 610px;
+            background-color: pink;
+            margin: 50px auto;
+            text-align: center;
+            
+        }
+        #album img{
+            width: 200px;
+            height: 200px;
+        }
+        #album img:hover{
+            /* hover: 伪类选择器 通过样式的方式给标签添加属性效果 当鼠标经过img标签就触发里面的代码 */
+            /* transform: 变形标签 scale缩放 */
+            transform: scale(1.5);
+            /* transition: 延时操作 设置变形完成时间 加个过渡 */
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="album">
+        <img src="img/林克1.jpg" alt="">
+        <img src="img/林克2.jpg" alt="">
+        <img src="img/林克3.jpg" alt="">
+        <img src="img/林克4.jpg" alt="">
+        <img src="img/林克5.jpg" alt="">
+        <img src="img/林克6.jpg" alt="">
+    </div>
+</body>
+</html>
+

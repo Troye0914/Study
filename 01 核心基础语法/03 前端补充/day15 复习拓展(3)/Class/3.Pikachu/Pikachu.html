@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pikachu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 150px;
+        }
+
+        #box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url("img/floor.jpg") left top/50px 50px;
+        }
+
+        #box p {
+            box-sizing: border-box;
+            float: left;
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+        }
+
+        #box p.wall {
+            background: url("img/wall.jpg") left top/50px 50px;
+        }
+
+        #monkey {
+            position: absolute;
+            background: url("img/player.png") center/cover;
+            width: 50px;
+            height: 50px;
+        }
+        
+        #rule {
+            width: 300px;
+            border: 2px solid;
+            line-height: 30px;
+            padding: 10px;
+        }
+
+        #rule h1 {
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #rule p {
+            margin: 5px 0 5px;
+            font-size: larger;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="box"><div id="monkey" class="down"></div></div>
+    <div id='rule'><h1>游戏规则</h1><p>用键盘WSAD键控制人物移动方向，人物经过的方格会被染成蓝色，当所有灰色方格均被染成蓝色方格（并且棋盘内不存在红色方格）时，游戏获胜。<br><b>注意：</b>若二次经过同一方格，方格会被染成红色。</p></div>
+
+    <script>
+        (function () {
+            let mapX = 10;
+            let mapY = 10;
+            let mapData = [
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+                0, 0, 0, 1, 0, 0, 1, 0, 0, 0,
+                0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+                0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
+                0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+                0, 0, 0, 1, 1, 1, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            ]
+            let maptag = new Array(mapX * mapY).fill(false)
+            let tag = new Array(mapX * mapY).fill(false)
+            let startCoor = { x: 4, y: 4 }
+            let over = false
+            let game = false
+            let oMonkey = document.getElementById("monkey");
+            let oBox = document.getElementById("box");
+            oBox.style.cssText = `width:${mapX * 50}px;height:${mapY * 50}px;`
+            let x = document.createDocumentFragment();
+            for (let i = 0; i < mapX * mapY; i++) {
+                let p = document.createElement("p");
+                p.className = (mapData[i] === 1) ? "wall" : ""
+                p.id = `p${i}`
+                x.appendChild(p);
+            }
+            oBox.appendChild(x);
+            oMonkey.style.cssText = `left:${startCoor.x * 50}px;top:${startCoor.y * 50}px;`;
+            alert('开始游戏！')
+            document.addEventListener("keydown", function (ev) {
+                if (judge(mapData, maptag, tag)) {
+                    alert('恭喜通关🎉🎉🎉')
+                    removeEventListener('keydown')
+                }
+                console.log(ev);
+                let keyCode = ev.keyCode
+                switch (keyCode) {
+                    case 87://w
+                        startCoor.y--
+                        break;
+                    case 65://a
+                        startCoor.x--
+                        break;
+                    case 83://s
+                        startCoor.y++
+                        break;
+                    case 68://d
+                        startCoor.x++
+                        break;
+                    default:
+                        return;
+                }
+                over = false
+                if (startCoor.x > mapX - 1) {
+                    startCoor.x = mapX - 1
+                    over = true
+                }
+                else if (startCoor.x < 0) {
+                    startCoor.x = 0
+                    over = true
+                }
+                if (startCoor.y > mapY - 1) {
+                    startCoor.y = mapY - 1
+                    over = true
+                }
+                else if (startCoor.y < 0) {
+                    startCoor.y = 0
+                    over = true
+                }
+                tag[mapX * startCoor.y + startCoor.x] = true
+                if (!over) {
+                    if (!maptag[mapX * startCoor.y + startCoor.x]) {
+                        document.getElementById(`p${mapX * startCoor.y + startCoor.x}`).style.backgroundImage = 'url(img/blue.png)'
+                    } else {
+                        document.getElementById(`p${mapX * startCoor.y + startCoor.x}`).style.backgroundImage = 'url(img/red.png)'
+                    }
+                    maptag[mapX * startCoor.y + startCoor.x] = !maptag[mapX * startCoor.y + startCoor.x]
+                }
+                oMonkey.style.cssText = `left:${startCoor.x * 50}px;top:${startCoor.y * 50}px`
+            })
+        })()
+
+        function judge(mapData, maptag, tag) {
+            for (let i = 0; i < mapData.length; i++) {
+                if (!mapData[i]) {
+                    if (!maptag[i] && tag[i]) {
+                        return false
+                    }
+                } else {
+                    if (!maptag[i]) {
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+    </script>
+</body>
+
+</html>

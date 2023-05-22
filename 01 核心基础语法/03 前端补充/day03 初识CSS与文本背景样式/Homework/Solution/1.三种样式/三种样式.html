@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三种样式</title>
+    <style>
+        .color{
+            color: blue
+        }
+        .font{
+            font-size: 40px;
+            font-weight: bold;
+            
+        }
+        .text{
+            text-align: left;
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <p id="internal" class="color font text">内部样式表</p>
+    <p id="external">外部样式表</p>
+    <p id="in-line"
+       style="color: brown;
+              font-size: 40px;
+              text-align: right;
+              text-decoration: overline;">行内样式表</p>
+</body>
+</html>

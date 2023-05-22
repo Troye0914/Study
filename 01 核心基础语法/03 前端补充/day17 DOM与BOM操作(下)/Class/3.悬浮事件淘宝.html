@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            float: left;
+            margin: 12px;
+        }
+        .active {
+            border: 3px solid red;
+        }
+        li img{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img id="bigPic" src="https://p0.itc.cn/images01/20210906/eb64b3a502644e3f8740d42e67b71017.jpeg" alt="" width="500" height="500">
+        <ul>
+            <li><img class="smallPic" src="https://p1.itc.cn/images01/20210906/8671e7755c6142ea871a3a2c3b18d9a9.jpeg" alt="" width="70" height="70"></li>
+            <li><img class="smallPic" src="https://p3.itc.cn/images01/20210906/cdebce37836142d2a46caddfb6874e11.jpeg" alt="" width="70" height="70"></li>
+            <li><img class="smallPic" src="https://p9.itc.cn/images01/20210906/dee943969b954835bb06e78d1ab68517.jpeg" alt="" width="70" height="70"></li>
+            <li><img class="smallPic" src="https://p1.itc.cn/images01/20210906/77862e2263f245deb7561233d9df5692.jpeg" alt="" width="70" height="70"></li>
+            <li><img class="smallPic" src="https://p6.itc.cn/images01/20210906/6865c0eaa51647cc8c4fcb81e31a4577.jpeg" alt="" width="70" height="70"></li>
+        </ul>
+    </div>
+
+    <script>
+        let bigPic = document.getElementById('bigPic')
+        let smallPic = document.getElementsByClassName('smallPic')
+        for (let i = 0; i < smallPic.length; i++) {
+            smallPic[i].onmouseover = function() {
+                for (let j = 0; j < smallPic.length; j++) {
+                    smallPic[j].parentNode.className = ''
+                }
+                bigPic.src = this.src
+                this.parentNode.className = 'active'
+            }
+        }
+    </script>
+</body>
+</html>

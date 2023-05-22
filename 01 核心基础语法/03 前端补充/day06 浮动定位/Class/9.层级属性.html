@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+        .co1{
+            position: absolute;
+            z-index: 50;
+            background-color: red;
+        }
+        .co2{
+            position: absolute;
+            z-index: 60;
+            background-color: #096;
+        }
+        .co3{
+            z-index: 10;
+            position: absolute;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box co1">1</div>
+    <div class="box co2">2</div>
+    <div class="box co3">3</div>
+</body>
+</html>

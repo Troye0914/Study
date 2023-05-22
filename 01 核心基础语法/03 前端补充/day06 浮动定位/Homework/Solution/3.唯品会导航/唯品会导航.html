@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>唯品会导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 1000px;
+            height: 37px;
+            border-radius: 8px;
+            background-color: #df3480;
+            margin: 10px auto 0;
+            padding: 0 12px 0;
+        }
+        .content{
+            position: relative;
+            width: 65px;
+            height: 100%;
+            text-align: center;
+            float: left;
+        }
+        .wrap li:nth-child(1){
+            background-color: #af2b67;
+        }
+        .wrap li:nth-child(2){
+            width: 100px;
+        }
+        .wrap li:nth-child(2) p{
+            width: 80px;
+        }
+        .wrap li:nth-child(3){
+            width: 95px;
+        }
+        .wrap li:nth-child(3) p{
+            width: 75px;
+        }
+        .wrap li:nth-child(10){
+            width: 61px;
+            float: right;
+            margin-right: 10px;
+        }
+        .wrap li:nth-child(11){
+            width: 61px;
+            float: right;
+            margin-right: 10px;
+        }
+        .wrap li:nth-child(10) p{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(0, -50%);
+        }
+        .wrap li:nth-child(11) p{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(0, -50%);
+        }
+        .wrap li img{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+        }
+        .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 95%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="wrap">
+        <li class="content"><p class="text">首页</p></li>
+        <li class="content"><p class="text">2.14情人节</p></li>
+        <li class="content"><p class="text">唯品国际</p></li>
+        <li class="content"><p class="text">母婴</p></li>
+        <li class="content"><p class="text">居家</p></li>
+        <li class="content"><p class="text">男士</p></li>
+        <li class="content"><p class="text">美妆</p></li>
+        <li class="content"><p class="text">生活</p></li>
+        <li class="content"><p class="text">更多</p></li>
+        <li class="content">
+            <img src="img/wei01.png" alt="预告">
+            <p class="text">预告</p>
+        </li>
+        <li class="content">
+            <img src="img/wei02.png" alt="分类">
+            <p class="text">分类</p>
+        </li>  
+    </ul>
+</body>
+</html>

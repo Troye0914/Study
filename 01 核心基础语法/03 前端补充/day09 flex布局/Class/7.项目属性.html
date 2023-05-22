@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            width: 500px;
+            height: 500px;
+            background-color: #096;
+        }
+        .box div{
+            width: 200px;
+            height: 200px;
+            background-color: #6cf;
+            order: 5;
+        }
+        .box div:nth-child(2){
+            background-color: red;
+            order: 4;
+        }
+        .box div:nth-child(3){
+            background-color: pink;
+            order: 3;
+        }
+    </style>
+</head>
+<body>
+    <!-- order项目顺序 数值越小 排列越靠前 默认为0 -->
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

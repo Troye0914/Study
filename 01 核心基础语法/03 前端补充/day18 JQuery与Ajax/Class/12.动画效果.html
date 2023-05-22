@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #096;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button id="btn1">隐藏</button>
+    <button id="btn2">上推</button>
+    <button id="btn3">淡隐</button>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        $('#btn1').click(function() {
+            if ($(this).text() == '隐藏') {
+                $('div').hide(1000, function() {
+                    $('#btn1').text('显示')
+                })
+            } else {
+                $('div').show(1000, function() {
+                    $('#btn1').text('隐藏')
+                })
+            }
+        })
+
+        $('#btn2').click(function() {
+            if ($(this).text() == '上推') {
+                $('div').slideUp(1000, function() {
+                    $('#btn2').text('下拉')
+                })
+            } else {
+                $('div').slideDown(1000, function() {
+                    $('#btn2').text('上推')
+                })
+            }
+        })
+
+        $('#btn3').click(function() {
+            if ($(this).text() == '淡隐') {
+                $('div').fadeOut(1000, function() {
+                    $('#btn3').text('淡现')
+                })
+            } else {
+                $('div').fadeIn(1000, function() {
+                    $('#btn3').text('淡隐')
+                })
+            }
+        })
+    </script>
+</body>
+</html>

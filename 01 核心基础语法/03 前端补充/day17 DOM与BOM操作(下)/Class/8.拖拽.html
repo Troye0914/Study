@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    #drag{
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+    }
+
+    #box{
+      width: 500px;
+      height: 200px;
+      border: 2px solid black;
+      margin: 0 auto;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id = "drag" draggable="true"></div><!-- 设置为可拖拽 -->
+  <div id = "box"></div>
+  
+  <script>
+    /*
+      怎么用js操控dom(文档对象模型)元素:
+        什么元素用什么事件实现什么功能
+      H5拖拽事件:
+        被拖拽(基于事件):
+          ondragstart -- 拖拽开始
+          ondrag -- 拖拽中
+          ondragend -- 拖拽结束
+        进入目标元素:
+          ondragenter 进入目标元素
+          ondragover  在目标元素上移动
+          ondragleave 离开目标元素
+          ondrop      在目标元素上释放
+    */
+
+    /*1.获取元素*/
+    let drag = document.getElementById("drag");
+    let box = document.getElementById("box");
+ 
+    /*拖拽事件*/
+      /*拖拽开始*/
+    drag.ondragstart = function(){
+      this.style.background = "green";
+    }
+      /*拖拽中*/
+    drag.ondrag = function(){
+      this.innerHTML = "被拖拽中"; /*改变html元素内容*/
+    }
+      /*拖拽结束*/
+    drag.ondragend = function(){
+      this.style.background = "red";
+      this.innerHTML = "";
+    }
+ 
+    /*进入目标元素事件*/
+
+    /*进入目标元素*/
+    box.ondragenter = function(ev){
+      ev.preventDefault();
+      this.innerHTML = "准备进入元素";
+      this.style.background = "yellow";
+    }
+
+    /*在目标元素上移动*/
+    box.ondragover = function(ev){
+      ev.preventDefault();
+      this.innerHTML = "元素移动中";
+      this.style.background = "blue";
+    }
+
+    /*离开目标元素*/
+    box.ondragleave = function(){
+      this.innerHTML = "告辞";
+      this.style.background = "gold";
+    }
+
+    /*释放目标元素
+    浏览器存在默认事件,比如默认拖图片就是根据路径打开图片*/
+    box.ondrop = function(){     
+      this.innerHTML = "睡觉了";
+      this.style.background = "green";
+    }
+ 
+ 
+ </script>
+</body>
+</html>
+
+<!-- 以前是ajax实现.实现h5原生拖拽
+ -->

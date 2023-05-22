@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单作业</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .form{
+            width: 310px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .content{
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form class="form" action="">
+        <h3>注册页</h3>
+        <hr>
+        <ul class="content">
+            <li><label for=""></label> 姓名：<input type="text"></li>
+            <li><label for=""></label> 密码：<input type="password"></li>
+            <li><label for=""></label> 性别：
+                <input type="radio" name="gender"><span>男</span>
+                <input type="radio" name="gender"><span>女</span>
+            </li>
+            <li><label for=""></label> 照片：<input type="file" multiple></li>
+            <li><label for=""></label> 爱好：
+                <input type="checkbox"> <span>书</span>
+                <input type="checkbox"> <span>运动</span>
+                <input type="checkbox"> <span>聊天</span>
+            </li>
+            <li><label for=""></label> 所在城市：
+                <select name="" id="">
+                    <option value="">北京</option>
+                    <option value="">成都</option>
+                    <option value="">扬州</option>
+                </select>
+            </li>
+            <li>
+                <p>协议：</p>
+                <textarea name="" id="" cols="30" rows="10" placeholder="请遵守相关规定，互相尊重，营造良好氛围。"></textarea>
+            </li>
+            <li><input type="checkbox"> <span>我认真阅读并接受以上协议。</span></li>
+            <li>
+                <button>提交</button>
+                <button>重置</button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

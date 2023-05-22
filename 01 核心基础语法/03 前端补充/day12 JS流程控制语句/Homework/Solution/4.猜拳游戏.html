@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>猜拳游戏</title>
+</head>
+
+<body>
+    <script>
+        // 4.用if写一个猜拳游戏.对方默认出石头
+        const tag = new Map()
+        tag.set('石头', 0)
+        tag.set('剪刀', 1)
+        tag.set('布', 2)
+        let res = tag.get(prompt('开始猜拳！请输入（石头 / 剪刀 / 布）: '))
+        if (!res) alert('石头 -> 石头 : 双方平局')
+        else if (res == 1) alert('剪刀 -> 石头 : 你输了')
+        else alert('布 -> 石头 : 你赢了')
+    </script>
+</body>
+
+</html>

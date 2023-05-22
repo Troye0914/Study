@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断婚龄</title>
+</head>
+<body>
+    <script>
+        // 6.有对情侣.请输入双方的年龄.判断两者是否能够结婚 (法定结婚年龄男方22岁 女方20岁)
+        alert('您好！这里是民政局婚姻登记处。')
+        let male = prompt('请输入男方年龄：')
+        let female = prompt('请输入女方年龄：')
+        if(male >=22 && female >=20) alert('新婚快乐！')
+        else {
+            let year = Math.max(22 - male, 20 - female)
+            alert(`非常抱歉，暂不能办理结婚，让我们定下${year}年之约。`)
+        }
+    </script>
+</body>
+</html>

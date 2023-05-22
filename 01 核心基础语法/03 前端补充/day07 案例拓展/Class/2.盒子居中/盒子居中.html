@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子居中</title>
+    <style>
+        .wrap{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #096;
+        }
+        .son{
+            /*上下左右四个方位都设置0 加个auto 浏览器就自适应水平居中*/
+            /* 第一种方法 */
+            /*  position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto; */
+
+            /*第二种方法*/
+            position: absolute;
+            top:50%;
+            left:50%;
+            /*- 自身宽度的一半*/
+            /*- 自身高度的一半*/
+            margin-top: -100px;
+            margin-left: -100px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

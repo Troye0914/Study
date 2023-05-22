@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/1.jpg" alt="" id="pic" width="500" height="500">
+
+    <button id="up">上一张</button>
+    <button id="down">下一张</button>
+    <script>
+        let pic = document.getElementById('pic')
+        let up = document.getElementById('up')
+        let down = document.getElementById('down')
+
+        //一共5张图 图片最大值为5 最小值为1 如果现在是第五张图继续点击下一张 返回第一张
+        let MaxPic = 5, MinPic = 1
+        let now_pic = MinPic //默认情况下打开网页显示第一张图片
+
+        //当我点击down的时候 我就激活里面的函数
+        down.onclick = function(){
+            if(now_pic == MaxPic){
+                now_pic = MinPic
+            }else{
+                now_pic++
+            }
+            pic.src = `img/${now_pic}.jpg`
+        }
+
+        //上一张
+        up.onclick = function(){
+            if(now_pic == MinPic){
+                now_pic = MaxPic
+            }else{
+                now_pic--
+            }
+            pic.src = `img/${now_pic}.jpg`
+        }
+    </script>
+</body>
+
+</html>

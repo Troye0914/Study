@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,
+        li {
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            border: 3px solid #096;
+        }
+
+        .item {
+            margin: 15px;
+        }
+
+        .active {
+            background-color: red;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>难度选择</h1>
+    <ul>
+        <li class="item active">最初级</li>
+        <li class="item">初级</li>
+        <li class="item">中级</li>
+        <li class="item">高级</li>
+    </ul>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        $('.item').click(function() {
+            // $('.item').removeClass('active')
+            // $('.item').addClass('active')
+            // $(this).addClass('active')
+            $(this).toggleClass('active')
+        })
+    </script>
+</body>
+
+</html>

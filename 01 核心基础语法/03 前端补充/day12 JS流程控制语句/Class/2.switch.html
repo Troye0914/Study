@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let num = (prompt('扔骰子 你扔了几个'))
+        // switch (num) {
+        //     case 1:
+        //         document.write('扔了1')
+        //         break
+        //     case 2:
+        //         document.write('扔了2')
+        //         break
+        //     case 3:
+        //         document.write('扔了3')
+        //         break
+        //     case 4:
+        //         document.write('扔了4')
+
+        //     case 5:
+        //         document.write('扔了5')
+
+        //     case 6:
+        //         document.write('扔了6')
+
+        //     default:
+        //         document.write('你是我的神 我都没有的你哪里有')    
+        // }
+
+        let month = Number(prompt('请输入你的月份'))
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert('这个月有31天')
+                break
+            case 2:
+                alert('这个月有28/29天')
+                break
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                alert('这个月有30天')
+                break
+            default:
+                alert('?????不要瞎搞')
+        }
+    </script>
+</body>
+
+</html>

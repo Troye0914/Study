@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        $('li').each(function(index, obj) {
+            console.log(index, obj)
+        })
+
+        let teacher = ['婷婷', '阿宸', '七零', '小禾', '小川', '晓东']
+        console.log(teacher)
+        
+        $(teacher).each(function(index, obj) {
+            console.log(index, obj)
+        })
+
+        let tt = {
+            name: '婷婷',
+            age: 18
+        }
+        $(tt).each(function(index, obj) {
+            console.log(index, obj)
+        })
+    </script>
+</body>
+</html>

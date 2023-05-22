@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">干掉兄弟</button>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        $('body').append('<div id="water">多喝岩浆</div>')
+        $('body').prepend('<div id="juice">多喝果汁</div>')
+
+        $('#water').before('<div class="bro">你好我是你楼上的大兄弟</div>')
+        $('#water').before('<div class="bro">你好我是你楼上的大兄弟</div>')
+        $('#water').before('<div class="bro">你好我是你楼上的大兄弟</div>')
+
+        $('#water').after('<div class="bro">你好我是你楼下的大兄弟</div>')
+        $('#water').after('<div class="bro">你好我是你楼下的大兄弟</div>')
+        $('#water').after('<div class="bro">你好我是你楼下的大兄弟</div>')
+
+        $('#btn').click(function() {
+            $('.bro').remove()
+        })
+    </script>
+</body>
+</html>

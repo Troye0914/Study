@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str1 = new String('tingting')
+        console.log(str1.length)
+
+        let str2 = 'Hello World'
+        console.log(str2.toLocaleLowerCase()) //小写
+        console.log(str2.toLocaleUpperCase()) //大写
+        console.log(str2.charCodeAt(1))
+
+        let str3 = '多喝热水水热喝多'
+        console.log(str3.substring(1,4))//字符串切片 括号内起点 终点
+        console.log(str3.split('水')) //切割 基于括号内的数据进行分割
+        console.log(str3.indexOf('喝')) //找到指定数据所在的下标 只写一个值 默认从0开始
+        console.log(str3.indexOf('喝',3))//找到指定数据所在的下标 起点下标3开始搜索
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        我已经同意并且阅读
+        <input type="checkbox" name="" id="check">
+        <a href="#">多喝岩浆</a>
+        协议
+    </p>
+
+    <img src="img/1.jpg" alt="">
+    <p title="你过来啊">来打我啊</p>
+    <!-- 当我勾选了才可以被注册 -->
+    <input type="submit" name="" id="reg" value="注册">
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <!-- <script>
+        $('#reg').click(function() {
+            // alert($('#check').attr('checked'))
+            alert($('#check').prop('checked'))
+        })
+    </script> -->
+    <script>
+        $('#reg').click(function() {
+            $('#check').prop('checked') ? alert('注册成功') : alert('请勾选协议')
+        })
+
+        console.log($('img').attr('src'))
+        $('p').removeAttr('title')
+        // $('img').removeAttr('src')
+        $('img').attr('src', 'img/2.jpg')
+
+    </script>
+</body>
+</html>

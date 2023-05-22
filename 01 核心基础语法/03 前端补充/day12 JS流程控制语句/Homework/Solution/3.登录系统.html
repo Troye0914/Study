@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录系统</title>
+</head>
+<body>
+    <script>
+        // 3.用if和while写一个登录系统.输入失败超过3次就结束程序
+        alert('欢迎登录本系统！请先注册账户。')
+        let name = prompt('请输入您的姓名：')
+        alert('注册完成，请登录..')
+        let error_times = 3
+        while (true) {
+            if (error_times < 0) {
+                alert('输入错误次数超出最大限制次数，请刷新重试。')
+                break
+            }
+            if (name == prompt('请输入用户名(您的姓名): ')) {
+                alert(`欢迎您，${name}先生/女士。`)
+                break
+            }
+            else {
+                alert(`输入错误，请重新输入..(还剩${error_times--}次机会)`)
+                continue
+            }
+        }   
+    </script>
+</body>
+</html>

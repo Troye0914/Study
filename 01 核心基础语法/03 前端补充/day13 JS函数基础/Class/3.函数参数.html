@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //必备参数
+        function water(name) {
+            console.log(`${name}同学咱们多喝岩浆 有益身体健康`)
+        }
+        water('段君虎')
+        water('吴昊')
+
+        function water(name, money) {
+            console.log(`${name}同学咱们多喝岩浆 一杯岩浆${money}元`)
+        }
+        water('段君虎', 9.9)
+        water('吴昊')
+        // 注意:如果只传一个参数 不会报错只是会出现未定义
+
+        //默认参数
+        function fun3(name, talk = '多喝岩浆') {
+            console.log(`我叫${name} 老师让我${talk}`)
+        }
+        fun3('大百草')	
+
+        //匿名函数
+        (function (name) {
+            alert(`${name},今晚一起嗨皮吧`)
+        })('婷婷');
+    </script>
+</body>
+
+</html>

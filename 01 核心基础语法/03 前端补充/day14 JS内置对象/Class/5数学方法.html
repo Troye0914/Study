@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        document.write(Math.PI + '<br>') //获取圆周率
+
+        // random: 生成0 - 1之间随机数
+        let num = Math.random() * 10
+        // let num = parseInt(Math.random()*10)
+        document.write(num)
+        document.write('<br>')
+
+        // ceil:数据向上取整 不管小数 整数 + 1
+        document.write(Math.ceil(num))
+        document.write('<br>')
+
+        // floor:数据向下取整 不要小数 保留整数
+        document.write(Math.floor(num))
+        document.write('<br>')
+
+        // round: 四舍五入求整
+        document.write(Math.round(num))
+        document.write('<br>')
+
+        // max: 获取最大值
+        console.log(Math.max(10,70))
+        document.write('<br>')
+        // min: 获取最小值
+        console.log(Math.min(10,70))
+        document.write('<br>')
+    </script>
+</body>
+
+</html>

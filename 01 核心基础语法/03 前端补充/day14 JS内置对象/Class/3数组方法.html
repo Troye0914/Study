@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = ['南风过熙', '孟宇', '德红', '注定']
+        // push:在数组最后追加数据 可以追加多个数据 返回值为追加后的数据长度
+        name.push('山超')
+        console.log(name, name.push('顾冉', '白露'))
+
+        // pop:删除数组最后的一个数据 返回值为删除数据
+        //js会把里面所有的代码执行完了在渲染
+        console.log(name.pop())
+
+
+        // unshift:在数组最前面添加数据 可以添加多个数据 返回值为追加后的数据长度
+        console.log(name.unshift('小杨','婷婷'))
+
+        // shift:删除数组的第一个元素 返回值为被删除的元素
+        console.log(name.shift(),name)
+
+        // splice:增删数据 取出数组的一部分数据
+        let arr = [1,8,9,7,1,8,9]
+        let num = arr.splice(2,3)
+        console.log(arr,num)
+
+        // toSting:把数组转换为字符串 返回值为转换结果
+        let str=arr.toString()
+        console.log(str,typeof str, str.length)
+
+        // reverse:把数组的数据反转过来
+        console.log(name.reverse())
+    </script>
+</body>
+
+</html>

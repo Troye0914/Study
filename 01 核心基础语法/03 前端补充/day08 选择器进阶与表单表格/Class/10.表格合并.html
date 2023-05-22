@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table{
+            width: 500px;
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+        td,th,tr{
+            border: 1px solid red;
+            text-align: center;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>兴趣爱好表</caption>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>爱好</th>
+        </tr>
+        <tr>
+            <td>罗普</td>
+            <td rowspan="2">18</td>
+            <td>睡觉</td>
+        </tr>
+        <tr>
+            <td>qq糖</td>
+            <!-- <td>13</td> -->
+            <td>干饭</td>
+        </tr>
+        <tr>
+            <td colspan="2">白露</td> 
+            <td><a href="https://www.baidu.com">点我告诉你我多少岁</a></td> 
+            <td>上课</td> 
+        </tr>
+        <tr>
+            <td colspan="2">许多多</td> 
+            <!-- <td>99</td> -->
+            <td>打游戏</td> 
+        </tr>
+    </table>
+    <!-- 跨行合并 rowspan 从上至下
+         跨列合并 colspan 从左至右 只保留最左边 删除其它 -->
+</body>
+</html>

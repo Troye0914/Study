@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{margin:0;padding:0;}
+
+        #box{
+            position: relative; /*相对定位*/
+            margin: 50px auto;
+            background: url("img/floor.jpg") left top/50px 50px;
+        }
+        #box p{
+            float: left;
+            width: 50px;
+            height: 50px;
+        }
+        #box p.wall{
+            background: url("img/wall.jpg") left top/50px 50px;
+        }
+
+        #monkey{
+            position: absolute;  /*绝对定位*/
+            background: url("img/player.png");
+            width: 50px;
+            height: 62px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div id="monkey" class="down"></div>
+    </div>
+
+    <script>
+
+        (function(){
+            /* 地图数据
+                数组存储其实是一行，只是我们这里为了跟形象的表达地图的设置，才写成10X10的大小格式，下面会初始化地图大小
+            */
+            let mapData=[
+                        0,0,0,0,0,0,0,0,0,0,
+                        0,0,0,0,1,1,0,0,0,0,
+                        0,0,0,1,0,0,1,0,0,0,
+                        0,0,1,0,0,0,1,0,0,0,
+                        0,0,1,0,0,0,0,1,0,0,
+                        0,0,1,0,0,0,0,1,0,0,
+                        0,1,0,0,0,0,0,1,0,0,
+                        0,0,1,0,0,0,1,0,0,0,
+                        0,0,0,1,1,1,0,0,0,0,
+                        0,0,0,0,0,0,0,0,0,0
+                    ];
+            let startCoor = {x:0,y:5};
+
+            /* 初始化地图大小 
+                设置10x10列的地图，规定好每个格子的大小为50，那么一行的宽度500高度500，这就是大盒子(父元素)box的尺寸大小
+            */
+            let mapX = 10;
+            let mapY = 10;
+
+            /* 获取人物元素节点 */
+            let oMonkey = document.getElementById("monkey");
+
+            /*地图的创建
+                这种写法为函数的自执行
+                    作用：将下面的代码形成单独的模块，定义及执行，不需要再单独调用
+                (function(){
+
+                })();
+            */
+                let oBox = document.getElementById("box"); //获取父级元素的dom节点，为之后文档碎片添加做准备
+                /* 将父元素oBox盒子的大小 变为 上面定义的地图数据大小 
+                    ``为模板字符串
+                    ${}为模板字符串中加入变量的方法(中间可以写表达式) 如果直接在字符串中写mapX*50px 浏览器只会读成字符串，并不会计算
+                */
+                oBox.style.cssText = `width:${mapX*50}px;height:${mapY*50}px;`; 
+
+                /*创建每个网格*/
+                /* 
+                创建一个文档碎片，用于储存之后添加的p标签
+                作用是创建一个文档碎片，把要插入的新节点先附加在它上面，然后再一次性添加到document中 
+                这也是js性能优化的一个方法，这样只需要操作一次dom节点，不然父元素oBox元素每次添加p标签浏览器都会重绘一次(不懂重绘就去百度)
+                */
+                let x = document.createDocumentFragment(); 
+                /*添加p标签至文档碎片，并且每次添加都判断p标签的类名*/
+                for (let i=0;i<mapX*mapY;i++){
+                    let p = document.createElement("p");
+                    // p标签class选择器类名判断B格写法
+                    p.className = (mapData[i] === 1)?"wall":"";
+                    // p标签class选择器类名判断普通程序员写法
+                    // if(mapData[i] === 1){
+                    //     p.className = "wall";
+                    // }else{
+                    //     p.className = "";
+                    // }
+                    x.appendChild(p); //将P标签添加到文档碎片x中
+                }
+                oBox.appendChild(x); //将文档碎片x的所有p标签一次添加到oBox父元素中
+
+                /*人物初始位置*/
+                oMonkey.style.cssText = `left:${startCoor.x*50}px;top:${startCoor.y*50}px;`;
+
+            /*键盘事件的添加*/
+
+
+                /* 事件
+                    为整个文本文档监听键盘事件(event事件)
+                */
+                document.addEventListener("keydown",function(ev){
+                    console.log(ev);
+                    
+                    /* 将ev的keyCode属性单独赋值给一个变量，方面后面的书写 */
+                    let keyCode = ev.keyCode;
+
+                    /* 处理坐标
+                        判断键盘按下的键后，对应的坐标轴数据改变
+                        按下对应的键后，对应的坐标进行改变(相对起始坐标改变)
+                    */
+                    switch (keyCode) {
+                        case 87://w
+                        startCoor.y --;
+                            break;
+                        case 65://a
+                        startCoor.x --;
+                            break;
+                        case 83://s
+                        startCoor.y ++;
+                            break;
+                        case 68://d
+                        startCoor.x ++;
+                            break;
+                        default:
+                            return;
+                    }
+
+                    /* 极限限制 
+                        坐标极限为每个p标签的左上角那个坐标
+                        startCoor.x = Math.min(startCoor.x,mapX-1); 
+                        startCoor.x = Math.max(startCoor.x,0);
+                        为例
+                        Math函数取横坐标最小值 那么就要限定最大值的范围(不能大于mapX-1)
+                        Math函数取横坐标最大值 那么就要限定最小值的范围(不能小于0)
+                        知识点！！！ 逻辑必须要想清楚可以多讲一下这里
+                    */
+                   /* B个极限判断写法 */
+                    /* startCoor.x = Math.min(startCoor.x,mapX-1);
+                    startCoor.x = Math.max(startCoor.x,0);
+                    startCoor.y = Math.min(startCoor.y,mapY-1);
+                    startCoor.y = Math.max(startCoor.y,0); */
+
+                    /* 普通写法 */
+                    if(startCoor.x>mapX-1){
+                        startCoor.x=mapX-1
+                    }
+                    else{
+                        if(startCoor.x<0){
+                            startCoor.x=0
+                        }
+                    }
+                    if(startCoor.y>mapY-1){
+                        startCoor.y=mapY-1
+                    }
+                    else{
+                        if(startCoor.y<0){
+                            startCoor.y=0
+                        }
+                    }
+
+
+                    /* 人物样式(横纵坐标定位值)修改 
+                        上面switch修改完人物的坐标变两个后，需要将变化的坐标反映到人物的标签属性中，不然坐标只是在js代码里面修改，浏览器的样式不会有任何的改变
+                    */
+                    oMonkey.style.cssText = `left:${startCoor.x*50}px;top:${startCoor.y*50}px`;
+                });
+        })();
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

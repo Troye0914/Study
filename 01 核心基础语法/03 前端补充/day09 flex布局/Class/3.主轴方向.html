@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            /* flex-direction: row; */
+            /* flex-direction: column; */
+            /* flex-direction: row-reverse; */
+            flex-direction: column-reverse;
+            width: 500px;
+            height: 500px;
+            background-color: #096;
+        }
+        .box div{
+            width: 100px;
+            height: 100px;
+            background-color: #6cf;
+        }
+    </style>
+</head>
+<body>
+    <!-- display 样式说明 -->
+    <!--  设置主轴方向：flex-direction
+          row 默认 行 从左往右 
+          column 列 从上往下
+          row-reverse 行反转 从右往左
+          column-reverse 列反转 从下往上 -->
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

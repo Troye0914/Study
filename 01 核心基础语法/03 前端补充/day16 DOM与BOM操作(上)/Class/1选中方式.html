@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">多喝岩浆</div>
+
+    <div class="water">123</div>
+    <div class="water">456</div>
+    <div class="water">789</div>
+
+    <p>罗普</p>
+    <p>婷婷</p>
+    <p>吴昊</p>
+
+    <script>
+        //通过id获取元素
+        let box = document.getElementById('box')
+        box.innerText = '多喝热水' //修改元素的文本内容
+        console.log(box, typeof box)
+        console.log(box.innerText)// 查看元素的文本内容
+
+        //通过class获取元素
+        let water = document.getElementsByClassName('water')
+        console.log(water, typeof water) //伪数组
+        // water.innerText = '早上好'
+        // water[0].innerText = '早上好'
+        // water[1].innerText = '中午好'
+        // water[2].innerText = '晚上好'
+
+        for (let i = 0; i < water.length; i++) {
+            water[i].innerText = `要多喝热水 这是第${i}杯`
+        }
+
+        //通过标签名获取元素
+        let p = document.getElementsByTagName('p')[1]
+        //取标签元素的时候 就指定 我要取的是下标为1的元素而不是全部
+        p.innerText='小概率'
+        // p[1].innerText='小概率'
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: #096;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box')
+        //当我点击盒子时候 如果他是绿色就变蓝色 否则变回绿色
+        let is_green = true
+        box.onclick = function(){
+            if(is_green){
+                this.style.backgroundColor = '#6cf'
+                is_green = false
+            }else{
+                this.style.backgroundColor = '#096'
+                is_green = true
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

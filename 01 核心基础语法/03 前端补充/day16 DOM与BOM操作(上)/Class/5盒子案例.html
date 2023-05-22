@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* .box{
+            width: 300px;
+            height: 300px;
+            background-color: #096;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let w = Number(prompt('请输入盒子的宽度'))
+        let h = Number(prompt('请输入盒子的高度'))
+        let c = prompt('请输入盒子的颜色单词/rgb值/16进制值')
+
+        let box = document.getElementById('box')
+        box.style.width = `${w}px`
+        box.style.height = `${h}px`
+        box.style.backgroundColor = c
+    </script>
+
+    <!-- 
+    我需要一个功能 让我可以自由的创建一个盒子
+    宽度/宽度/颜色不固定
+    以前每次都要css代码很麻烦 -->
+</body>
+
+</html>

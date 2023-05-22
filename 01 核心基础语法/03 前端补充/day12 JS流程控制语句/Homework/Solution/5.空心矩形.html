@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>空心矩形</title>
+</head>
+<body>
+    <script>
+        // 5.打印一个10*10空心矩形
+        console.log('空心矩形')
+        let squ = ''
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (!i || i == 9) squ += '♥ '
+                else if (!j || j == 9) squ += '♥ '
+                else squ += '  '
+            }
+            squ += '\n'
+        }
+        console.log(squ)
+    </script>
+</body>
+</html>

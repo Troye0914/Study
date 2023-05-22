@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">点击购物<span>5</span>秒后跳转到购物天堂</span></a>
+
+    <script>
+        let a = document.getElementsByTagName('a')[0]
+        let num = 5
+        time = setInterval(function() {
+            num--
+            a.innerHTML = `点击购物<span>${num}</span>秒后跳转到购物天堂`
+            if (!num) {
+                clearInterval(time)
+                location.href = 'https://www.taobao.com'
+            }
+        }, 1000)
+    </script>
+</body>
+</html>

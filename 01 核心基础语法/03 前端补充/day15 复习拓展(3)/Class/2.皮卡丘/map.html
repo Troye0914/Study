@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>游戏地图绘制</title>
+
+  <style>/*样式, 化妆盒*/
+    *{ /*正式开发不用通配符选择器. *--> 全部 */
+      margin: 0;/*设置内外边距. 作用排版*/
+      padding: 0;
+    }
+    #map{
+      position: relative; /*定位,相对定位. 相较于浏览器进行定位*/
+      margin: 100px auto; /*外边距. 上下距离50像素 左右居中*/
+      background: url("img/floor.jpg") left top/50px 50px;/*插入一张图片. 从左和上方向取50像素*/
+    }
+    #map p{ /*用p来做我们的地图单元.  一个地图块*/
+      float: left; /*布局,向左浮动*/
+      width: 50px;
+      height: 50px;
+    }
+    #map p.wall{/*找到map盒子里的 所有p标签,类型为wall的元素*/
+      background: url("img/wall.jpg") left top/50px 50px;
+    }
+    #play{
+      position: absolute; /*方便移动操作.绝对定位*/
+      width: 62px;
+      height: 62px;
+      background-image: url("img/player.png");
+    }
+  </style>
+</head>
+
+<body><!-- 身体,用户看的到内容,写在这里面.  -->
+
+  <div id = "map"><!-- 盒子标签 存储,存放一些东西,一些内容-->
+    <div id = "play"></div><!-- div默认是透明,看不到的 -->
+  </div>
+
+  <script>
+    /*自执行函数. 自动打开的开关,不用再另外调用*/
+    (function(){
+      /*绘制地图的数据*/
+      let mapData = [
+        0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,1,1,0,0,0,0,
+        0,0,0,1,0,0,1,0,0,0,
+        0,0,1,0,0,0,1,0,0,0,
+        0,0,1,0,0,0,0,1,0,0,
+        0,0,1,0,0,0,0,1,0,0,
+        0,1,0,0,0,0,0,1,0,0,
+        0,0,1,0,0,0,1,0,0,0,
+        0,0,0,1,1,1,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0
+      ]
+
+      /*
+        初始化,设置地图大小
+      */
+     let mapX = 10;
+     let mapY = 10;
+
+     /*
+      地图的创建, 自执行,让代码变成单独的模块, 不需要再定义和调用
+     */
+      (function(){
+        /*绑定连接到html里id为map的标签.*/
+        let map = document.getElementById("map");
+
+        /*绘制地图.根据我们之前的X和Y来进行绘制*/
+        /*模板字符串.直接在字符串写mapX*50px 浏览器会把它当成字符拼接 ${}*/
+        map.style.cssText = `width:${mapX*50}px;height:${mapY*50}px;`;
+        
+        /*文档碎片.变成网格. 把我们的地图的元素,变成一个个的网格(文档碎片) 优化性能*/
+        let x = document.createDocumentFragment();
+
+        for(let i = 0; i<mapX*mapY; i++){ /*循环语句. 3个元素. 1声明变量  2.循环的条件  3.循环更新操作*/
+          let p = document.createElement("p"); /*让p标签,变成默认网格的单元*/
+
+          /*p.className = (mapData[i] === 1)? "wall" : "";三目写法*/
+          /*根据地图数据,生成地图, (P地图单元格) 如果说p标签里面类型,为墙壁.就把墙壁图给它生成 */
+          if(mapData[i] === 1){
+            p.className = "wall";
+          }else{
+            p.className = "";
+          }
+          x.appendChild(p);/*把p标签添加到文档碎片X当中*/
+        }
+      map.appendChild(x); /*把文档碎片x里面的所有内容,一次性体交到map元素里面.实现完整地图绘制*/  
+      
+      })();
+    })();
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">大家五一快乐</div>
+
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <script>
+        // innerText: 读取 / 修改元素里的文本内容(不识别标签语法)
+        let box = document.getElementById('box')
+        box.innerText = '<b>马上五一了 大家准备去哪里嗨皮</b>'
+        alert(box.innerText)
+        // innerHTML: 读取 / 修改元素里的文本内容(识别标签语法)
+        let box2 = document.getElementsByClassName('box2')
+        box2[0].innerHTML='<h1>祝大家多喝岩浆</h1>'
+        box2[1].innerHTML='<b>祝大家多喝岩浆</b>'
+        box2[2].innerHTML='<u>祝大家多喝岩浆</u>'
+        alert(box2[0].innerHTML)
+    </script>
+</body>
+
+</html>

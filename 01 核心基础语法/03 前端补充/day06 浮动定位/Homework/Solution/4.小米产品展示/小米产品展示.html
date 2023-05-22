@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米产品展示</title>
+    <style>
+        body{
+            background-color: rgb(245, 245, 245);
+        }
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .box{
+            width: 978px;
+            float: left;
+        }
+        .box ul{
+            list-style: none;
+            width: 992px;
+            padding: 0;
+            margin: 0 0 -14px -14px;
+        }
+        .box ul li{
+            float: left;
+            width: 234px;
+            margin: 0 0 14px 14px;
+            background-color: white;
+        }
+        .box ul li:hover{
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+            transform: scale(1.01);
+            transition: 0.5s;
+        }
+        .box ul li a{
+            display: block;
+            width: 234px;
+            height: 260px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .figure-img{
+            width: 160px;
+            height: 160px;
+            margin: 0 37px 18px;
+        }
+        .title{
+            line-height: 21px;
+            color: black;
+            margin: 0 10px 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        .desc{
+            line-height: 18px;
+            color: rgb(164, 164, 164);
+            margin: 0 10px 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+        .price{
+            line-height: 21px;
+            color: black;
+            margin: 0 10px 14px;
+            font-size: 14px;
+        }
+        .num{
+            color: rgb(255, 132, 0);
+        }
+        .empty{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>小米产品展示</h2>
+        <div class="box">
+            <ul>
+                <li>
+                    <a href="https://baike.baidu.com/item/米家小白智能摄像机?fromModule=lemma_search-box" target="_blank">
+                        <div class="figure-img" ><img width="160px" height="160px" src="img/05.jpg" alt="米家小白智能摄像机"></div>
+                        <h3 class="title">米家小白智能摄像机</h3>
+                        <p class="desc">360° 全景拍摄，1080P 高清摄像</p>
+                        <p class="price"><span class="num">399</span><span>元</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://baike.baidu.com/item/小米VR眼镜?fromModule=lemma_search-box" target="_blank">
+                        <div class="figure-img"><img width="160px" height="160px" src="img/06.jpg" alt="小米VR眼镜"></div>
+                        <h3 class="title">小米VR眼镜</h3>
+                        <p class="desc">硬件级加速抗眩晕，配备9轴体感手柄</p>
+                        <p class="price"><span class="num">199</span><span>元</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://baike.baidu.com/item/米兔智能故事机/20103584?fr=aladdin" target="_blank">
+                        <div class="figure-img"><img width="160px" height="160px" src="img/07.jpg" alt="米兔智能故事机"></div>
+                        <h3 class="title">米兔智能故事机</h3>
+                        <p class="desc">微信远程互动，智能语音交互</p>
+                        <p class="price"><span class="num">199</span><span>元</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://baike.baidu.com/item/小米九号平衡车?fromtitle=九号平衡车&fromid=18730573&fromModule=lemma_search-box" target="_blank">
+                        <div class="figure-img"><img width="160px" height="160px" src="img/08.jpg" alt="九号平衡车"></div>
+                        <h3 class="title">九号平衡车</h3>
+                        <p class="desc">年轻人的酷玩具，骑行遥控两种玩法</p>
+                        <p class="price"><span class="num">1999</span><span>元</span></p>
+                    </a>
+                </li>
+                <div class="empty"></div>
+            </ul>
+        </div> 
+        <div class="empty"></div>
+    </div>
+</body>
+</html>

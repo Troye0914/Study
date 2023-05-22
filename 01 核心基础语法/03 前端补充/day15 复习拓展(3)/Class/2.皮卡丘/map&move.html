@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoveBox</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #map{
+      position: relative;
+      margin: 50px auto;
+      background: url("img/floor.jpg") left top/50px 50px;
+    }
+    #play{
+      position: absolute;
+      width: 62px;
+      height: 62px;
+      background: url("img/player.png");
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div id = "map">
+    <div id = "play"></div>
+  </div>
+  
+  <script>
+    (function(){
+      /*绘制地图*/
+      let mapX = 15;
+      let mapY = 15;
+      let Map = document.getElementById("map");
+      /*获取父级元素的dom节点*/
+      /*``为模板字符串
+       ${}为模板字符串中加入变量的方法(中间可以写表达式) 
+      如果直接在字符串中写mapX*50px 浏览器只会读成字符串，并不会计算*/
+      Map.style.cssText = `width:${mapX*50}px;height:${mapY*50}px`;
+      
+      let player = document.getElementById("play");
+      let move = 50;
+
+      /*移动操作,为整个文本文档监听键盘事件(event事件)*/
+      document.addEventListener("keydown",function(ev){
+        let keyCode = ev.keyCode;
+
+          /*设置偏移*/
+        let left = player.offsetLeft
+            ,top = player.offsetTop;
+
+        switch(keyCode){
+          case 87:
+            top -= move;
+          break;
+          case 65:
+            left -= move;
+          break;
+          case 83:
+            top += move;
+          break;
+          case 68:
+            left += move;
+          break;
+         } 
+         player.style.left = left + 'px';
+         player.style.top = top + 'px';
+      });     
+    })();
+  </script>
+</body>
+</html>

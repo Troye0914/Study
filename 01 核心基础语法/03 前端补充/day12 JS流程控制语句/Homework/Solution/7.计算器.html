@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+</head>
+
+<body>
+    <script>
+        // 7.用switch,实现一个计算器(加减乘除) --> case的参数为+-*/
+        alert('你好，欢迎使用计算器！')
+        let num1 = Number(prompt('请输入第一个数字：'))
+        let num2 = Number(prompt('请输入第二个数字：'))
+        let ope = prompt('请输入四则运算符(+-*/)：')
+        setTimeout(alert('正在计算..', 1000))
+        alert(`运算结果：${num1} ${ope} ${num2} = ${cal(num1, num2, ope)}`)
+
+        function cal(num1, num2, ope) {
+            let res
+            switch (ope) {
+                case '+':
+                    res = num1 + num2
+                    break
+                case '-':
+                    res = num1 - num2
+                    break
+                case '*':
+                    res = num1 * num2
+                    break
+                case '/':
+                    res = num1 / num2
+                    break
+            }
+            return res
+        }
+    </script>
+</body>
+
+</html>

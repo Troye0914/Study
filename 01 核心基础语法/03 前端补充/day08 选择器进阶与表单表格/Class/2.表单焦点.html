@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input,button{
+            /* 清除默认焦点 */
+            outline: none;
+        }
+        .btn{
+            border: 1px solid red;
+        }
+        /* 点击input 获取焦点 */
+        .btn:focus{
+            border: 1px solid green;
+        }
+        .text{
+            /* 消失 */
+            display: none;
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+        .btn:focus+.text{
+            /* 相邻选择器 选中对应元素的下一个兄弟元素 */
+            /* 显示 */
+            display: block;
+        }
+        .rad:checked{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="btn">
+    <p class="text">我是渣渣辉 当你获取焦点的时候就可以看到我</p>
+    <input type="checkbox" name="" id="" class="rad">
+</body>
+</html>

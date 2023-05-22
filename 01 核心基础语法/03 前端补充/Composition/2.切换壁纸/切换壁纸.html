@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换壁纸</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;;
+        }
+        ul,li{
+            list-style: none
+        }
+        .mi{
+            /* 设置表面大盒子 */
+            width: 700px;
+            height: 700px;
+            margin: 50px auto;
+            border: 3px solid #096;
+        }
+        .phone{
+            width: 200px;
+            height: 450px;
+            border: 3px solid black;
+            margin: 20px auto;
+            border-radius: 30px;
+            background: url(https://p0.itc.cn/images01/20210906/61cbac5f4d054e3e8fb1dbcc68a58af2.jpeg) center/cover;
+        }
+        .album{
+            width: 560px;
+            height: 80px;
+            background-color: #6cf;
+            margin: 50px auto;
+        }
+        .wallpage{
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 13px 10px;
+        }
+        .wallpage:nth-child(1){
+            background: url(https://p0.itc.cn/images01/20210906/eb64b3a502644e3f8740d42e67b71017.jpeg) center/cover;
+        }
+        .wallpage:nth-child(2){
+            background: url(https://p1.itc.cn/images01/20210906/8671e7755c6142ea871a3a2c3b18d9a9.jpeg) center/cover;
+        }
+        .wallpage:nth-child(3){
+            background: url(https://p3.itc.cn/images01/20210906/cdebce37836142d2a46caddfb6874e11.jpeg) center/cover;
+        }
+        .wallpage:nth-child(4){
+            background: url(https://p9.itc.cn/images01/20210906/dee943969b954835bb06e78d1ab68517.jpeg) center/cover;
+        }
+        .wallpage:nth-child(5){
+            background: url(https://p1.itc.cn/images01/20210906/77862e2263f245deb7561233d9df5692.jpeg) center/cover;
+        }
+        .wallpage:nth-child(6){
+            background: url(https://p6.itc.cn/images01/20210906/6865c0eaa51647cc8c4fcb81e31a4577.jpeg) center/cover;
+        }
+        .wallpage:nth-child(7){
+            background: url(https://p7.itc.cn/images01/20210906/252e2e5cd61140118c64cf0ea6721ab9.jpeg) center/cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="mi">
+        <div class="phone"></div>
+        <ul class="album">
+            <li class="wallpage"></li>
+            <li class="wallpage"></li>
+            <li class="wallpage"></li>
+            <li class="wallpage"></li>
+            <li class="wallpage"></li>
+            <li class="wallpage"></li>
+            <li class="wallpage"></li>
+        </ul>
+    </div>
+    <!-- jquery: js插件 网络文件 cdn网络引入 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // 给壁纸绑定一个点击事件 --> 当鼠标点击壁纸的时候 触发功能
+        // 当点击图片发生什么事情？点击小图片切换手机壁纸
+        // 把手机壁纸图片换成当前点击的图片
+        $('.wallpage').click(function(){
+            $('.phone').css('background-image', $(this).css('background-image'))
+        })
+    </script>
+</body>
+</html>

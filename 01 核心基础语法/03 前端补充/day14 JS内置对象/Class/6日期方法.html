@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //获取当前时间
+        console.log(Date())
+        let now_time = new Date() //获取当前日期
+        console.log(now_time)
+        let this_time = new Date('1970-7-7 07:07:07')
+        console.log(this_time)
+
+
+        // getTime() - >获取格林威治时间戳 1970 1 1距离现在多少秒
+        console.log(now_time.getTime())
+        // getFullYear()-- > 获取当前年份
+        console.log(now_time.getFullYear())
+        // getMonth()-- > 获取当前月份 他计算月份0开始计算 所以要获取本月月份需要 + 1
+        console.log(now_time.getMonth()+1)
+        // getDate()-- > 获取日
+        console.log(now_time.getDate())
+        // getHours()-- > 获取小时
+        console.log(now_time.getHours())
+        // getMinutes()-- > 获取分钟
+        console.log(now_time.getMinutes())
+        // getSeconds()-- > 获取秒钟
+        console.log(now_time.getSeconds())
+    </script>
+</body>
+
+</html>

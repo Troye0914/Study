@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p id="active">小概率 白露 罗普</p>
+    </div>
+
+    <script>
+        let box = document.getElementById('box')
+        let active = document.getElementById('active')
+        
+        let newNode = document.createElement('b')
+        newNode.innerText = '山超 忘川'
+        
+        box.appendChild(newNode)
+        box.removeChild(newNode)
+
+        let tb = document.createElement('a')
+        tb.innerHTML = '点我去购物'
+        tb.href = 'http://www.taobao.com/'
+
+        box.replaceChild(tb, active)
+    </script>
+</body>
+</html>

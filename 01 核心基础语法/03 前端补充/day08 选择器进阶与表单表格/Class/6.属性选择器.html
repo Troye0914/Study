@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div p[class]{
+            color: red;
+        }
+        div p[id='a']{
+            font-size: 20px;
+        }
+        div p[id*='c']{
+            border: 1px solid red;
+        }
+        div p[class^='w']{
+            background-color: blue;
+        }
+        div p[id$='b']{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="aw" id="a">我</p>
+        <p class="wb" id="b">和</p>
+        <p class="w" id="c">你</p>
+        <p class="w" id="cd">他</p>
+    </div>
+</body>
+</html>

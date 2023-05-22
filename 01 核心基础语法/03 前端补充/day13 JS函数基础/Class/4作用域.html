@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        if (1) {
+            var a = 1 //输出了 所以说var的权限不够好
+            let b = 2 //没有输出 因为他对于代码块的作用域更严谨 安全性高
+        }
+        console.log(a)
+        console.log(b)
+
+        for (let i = 1; i <= 10; i++) {
+            console.log(i)
+        }
+        console.log(i)
+
+        for (var i = 1; i <= 10; i++) {
+            console.log(i)
+        }
+        console.log(i)
+
+        let name='婷婷'
+        function fun(){
+            age=18
+            // let age=18 安全性更高 只能在函数内使用
+            console.log(name)
+            console.log(age)
+        }
+        fun()
+        console.log(age)
+
+        // let 不可以重复命名 var可以
+        var a = 66
+        var a = 88
+        document.write(a)
+
+        //作用域的就近原则
+        // let water = '多喝热水'
+        function fun(){
+            let water = '多喝岩浆'
+            alert(water)
+        }
+        let water = '多喝热水'//私有性更高
+        fun()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <p id="un">
+            用户名：
+            <input type="text" id="userName">
+        </p>
+        <p id="pw">
+            密码：
+            <input type="password" id="passWord">
+        </p>
+    </form>
+    <script>
+        let userName = document.getElementById('userName')
+        let passWord = document.getElementById('passWord')
+        
+        let msg = document.createElement('span')
+
+        userName.onfocus = function() {
+            msg.innerText = '请输入你的姓名'
+            this.parentNode.append(msg)
+        }
+
+        passWord.onblur = function() {
+            msg.innerText = '请确认你的密码 不要忘记了哦'
+            this.parentNode.append(msg)
+        }
+    </script>
+</body>
+</html>

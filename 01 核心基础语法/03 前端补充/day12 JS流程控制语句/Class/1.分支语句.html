@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // if语句
+        let name = prompt('你叫什么名字')
+        if (name == '莫安心') {
+            document.write('恭喜你成功登录账户')
+        }
+        // if-else 
+        let pygame = prompt('请问你是否退出游戏')
+        if(pygame=='是'){
+        	document.write('那就奖励你一个大嘴巴')
+        }else{
+        	document.write('那就算了')
+        }
+
+        let cj = Number(prompt('你期中考了多少分'))
+        if(cj>=70){
+            document.write('真棒太好了终于及格')
+        }else{
+            document.write('奖励你一个双人混打')
+        }
+        // 这里的输入没有转number 条件判断也会执行 因为js做了隐式类型转换
+
+        // if-elif-else
+        let score = Number(prompt('请输入你的成绩'))
+        if (score == 100) {
+            document.write('太棒了奖励你疯狂星期四一份<br>')
+        } else if (score >= 80) {
+            document.write('真好 棒打一锤')
+        } else if (score >= 60) {
+            document.write('及格了 直接混人双打')
+        } else {
+            document.write('远方传来风笛')
+        }
+        if(null){
+            alert('大家今晚表现真好 所以带大家睡桥洞')
+        }
+    </script>
+</body>
+
+</html>
