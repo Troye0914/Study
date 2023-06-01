@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>大家好，我是靓仔</h1>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+        <!-- 接收后端从数据库中传递过来的列表数据 -->
+        <!-- 遍历列表数据 -->
+        {% for data in data_list %}
+        <tr>
+            <!-- data是一个字典数据 -->
+            <td>{{ data.name }}</td>
+            <td>{{ data.gender }}</td>
+            <td>{{ data.age }}</td>
+        </tr>
+        <!-- 在html里面写循环需要设置结束标志 -->
+        {% endfor %}
+    </table>
+</body>
+</html>

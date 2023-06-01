@@ -49,10 +49,10 @@ class DouBan(object):
     def parse_data_xpath(self, html_doc):
         xml_doc = etree.HTML(html_doc)
         links = xml_doc.xpath('//a[@class="fleft"]/@href')
-        titles = xml_doc.xpath('//div[@class="media__body"]/h2/a')
+        titles = xml_doc.xpath('//a[@class="fleft"]')
         details = xml_doc.xpath('//p[@class="subject-abstract color-gray"]')
-        grades = xml_doc.xpath('//div[@class="media__body"]//span[@class="font-small color-red fleft"]')
-        prices = xml_doc.xpath('//div[@class="media__body"]//span[@class="buy-info"]/a')
+        grades = xml_doc.xpath('//span[@class="font-small color-red fleft"]')
+        prices = xml_doc.xpath('//span[@class="buy-info"]/a')
         self.num = 0
         dict_all_data = {}
         for link, title, detail, grade, price in zip(links, titles, details, grades, prices):
@@ -64,7 +64,7 @@ class DouBan(object):
             response = requests.get(link, headers=self.headers)
             child_html_doc = response.text
             child_xml_doc = etree.HTML(child_html_doc)
-            content_p = child_xml_doc.xpath('//div[@id="link-report"]/span[@class="short"]/div[@class="intro"]/p')
+            content_p = child_xml_doc.xpath('//div[@id="link-report"]/span[@class="all hidden"]//div[@class="intro"]/p')
             content = ''
             for p in content_p:
                 if p.text is not None:
@@ -101,9 +101,10 @@ class DouBan(object):
             grade = '无' if grade == '' else grade
             price = price.strip()[4:]
             self.num = 0
-            response = requests.get(link, self.headers)
+            response = requests.get(link, headers=self.headers, proxies=self.proxies)
             child_html_doc = response.text
-            re.findall('<div\sclass=\"indent\"\sid="link-report">.*?<span\sclass=\"short\">.*?<div\sclass=\"intro\">.*?<p>', child_html_doc, re.S)
+            content = re.search('<span\sclass=\"all\shidden\">.*?<div\sclass=\"intro\".*?<p>(.*)</p>', child_html_doc, re.S)
+            print(content.group(1))
 
     """json存储"""
     def save_data_json(self, dict_all_data, title, detail, grade, price, content, author):
